@@ -12,7 +12,7 @@ $(document).on('click', '#submit', function (evt) {
         $("#alert").show();
     }
     else {
-        var requestURL = "http://razin93937.pythonanywhere.com/guess/";
+        var requestURL = "https://razin93937.pythonanywhere.com/guess/";
         $.post(requestURL, { 'f_name': name }, function (data) {
             $("#alert").hide();
             $("#rows").empty();
