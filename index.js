@@ -24,10 +24,16 @@ $(document).on('click', '#submit', function (evt) {
                 $("#row" + i).append("<td>" + child['gender'] + "</td>");
                 $("#row" + i).append("<td>" + child['confidence'] + "</td>");
             }
-            if (data['verdict'] != "") {
-                $("#verdict").text(name + " is probably a " + data['verdict'] + " name");
+
+
+            if (Object.keys(data['children']).length > 1) {
+                if (data['verdict'] != "") {
+                    $("#verdict").text(name + " is probably a " + data['verdict'] + " name");
+                } else {
+                    $("#verdict").text("Cannot conclude gender of " + name);
+                }
             } else {
-                $("#verdict").text("Cannot conclude name of " + name);
+                $("#verdict").text("Enter full name for overall verdict");
             }
 
         }, "json");
