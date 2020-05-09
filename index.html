@@ -17,8 +17,13 @@
   <main role="main">
     <div class="jumbotron mb-5 text-center">
       <h1 class="display-3 mb-3">Gender Guesser v0.1a</h1>
-      <p>Gender guessing Decision tree classifier trained on lots of names. Billions and
-        billions of names. Huge dataset. onek accurate, trust me.</p>
+      <p>This is my first machine learning project. Its a Gender guessing decision tree classifier trained on lots of
+        bengali names. Billions and billions of names. Huge dataset. onek accurate, trust me
+      </p>
+      <p>
+        (Disclaimer: This assumed gender to be binary. Hope i don't offend anyone. Also, its actually trained on like
+        21k names)
+      </p>
       <h5>Razin</h5>
     </div>
     <div class="container">
@@ -32,14 +37,15 @@
       <div class="row">
         <div class="col-md-6">
           <div class="mr-5 ml-5 mb-5">
-            <h2 class="mb-3">Enter Name</h2>
+            <h2>Enter Name</h2>
+            <h6 class="mb-3">Preferrably Bengali</h6>
             <form>
               <div>
                 <label class="sr-only" for="name_input">Name</label>
-                <input type="text" class="form-control mb-3" id="name_input" placeholder="Jane Doe">
+                <input type="text" class="form-control mb-3" id="name_input" placeholder="Sokina, mokles etc">
               </div>
               <div>
-                <button type="submit" class="btn btn-primary mb-2" id="submit">Submit</button>
+                <button type="submit" class="btn btn-primary mb-2" id="submit">genderize</button>
               </div>
             </form>
           </div>
@@ -61,7 +67,7 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <div class="alert alert-primary" role="alert">
-            <h3 id="verdict">Verdict: enter name</h3>
+            <h3 id="verdict">Enter name for verdict</h3>
           </div>
         </div>
       </div>
