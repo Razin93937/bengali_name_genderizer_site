@@ -5,21 +5,10 @@ var requestURL = "https://razin93937.pythonanywhere.com/";
 
 $(document).ready(function () {
     name_f = document.getElementById("name_input");
+    update_selection();
 
     $("#model_selection").change(function () {
-        if ($("#model_selection").find(":selected").val() == "2") {
-            // when full_name is selected
-            $("#col1").hide(); // hide name column
-            $("#verdict_box").hide(); // hide final verdict box
-            $("#rows").empty(); // empty the table
-            predict_full_name()
-        } else {
-            // when word-wise is selected
-            $("#col1").show(); // show name column
-            $("#verdict_box").show(); // show final verdict box
-            $("#rows").empty(); //empty the table
-            predict_word_wise();
-        }
+        update_selection();
     });
 })
 
@@ -33,10 +22,12 @@ $(document).on('click', '#submit', function (evt) {
         $("#alert").show();
     } else {
         var selection = $("#model_selection").find(":selected").val();
-        if (selection == "1") {
+        if (selection == "2") {
+            update_selection();
             predict_word_wise();
         } else {
             // if full name model is selected
+            update_selection();
             predict_full_name();
 
         }
@@ -50,6 +41,7 @@ function predict_full_name() {
         $("#rows").append("<tr id='row1'></tr>");
         $("#row1").append("<td>" + data['verdict'] + "</td>");
         $("#row1").append("<td>" + (data['confidence'] * 100 - 50) * 2 + "%</td>");
+        $("#verdict").text("I am " + ((data['confidence'] * 100 - 50) * 2).toFixed(2) + "% sure \"" + name + "\" is a " + data['verdict'] + " name");
     }, "json");
 }
 
@@ -73,7 +65,7 @@ function predict_word_wise() {
 
         if (Object.keys(data['children']).length > 1) {
             if (data['verdict'] != "") {
-                $("#verdict").text(name + " is probably a " + data['verdict'] + " name");
+                $("#verdict").text("\"" + name + "\" is probably a " + data['verdict'] + " name");
             } else {
                 $("#verdict").text("Cannot conclude gender of " + name);
             }
@@ -82,4 +74,20 @@ function predict_word_wise() {
         }
 
     }, "json");
+}
+
+function update_selection() {
+    if ($("#model_selection").find(":selected").val() == "1") {
+        // when full_name is selected
+        $("#col1").hide(); // hide name column
+        //$("#verdict_box").hide(); // hide final verdict box
+        $("#rows").empty(); // empty the table
+        if (name != "") predict_full_name();
+    } else {
+        // when word-wise is selected
+        $("#col1").show(); // show name column
+        //$("#verdict_box").show(); // show final verdict box
+        $("#rows").empty(); //empty the table
+        if (name != "") predict_word_wise();
+    }
 }
