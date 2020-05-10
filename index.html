@@ -16,14 +16,13 @@
 <body>
   <main role="main">
     <div class="jumbotron mb-5 text-center">
-      <h1 class="display-3 mb-3">Gender Guesser v0.1a</h1>
-      <p>This is my first machine learning project. Its a Gender guessing decision tree classifier trained on lots of
-        bengali names. Billions and billions of names. Huge dataset. onek accurate, trust me
+      <h1 class="display-3 mb-3">Gender Guesser v0.2b</h1>
+      <p>My first machine learning project: Gender guessing model trained on lots of
+        bengali names. Billions and billions of names. Huge dataset. onek accurate, trust me. The name and gender
+        dataset was scraped from <b>[censored for legal reasons]. </b> This assumed gender to be binary. Hope i don't
+        offend anyone.
       </p>
-      <p>
-        (Disclaimer: This assumed gender to be binary. Hope i don't offend anyone. Also, its actually trained on like
-        21k names)
-      </p>
+      <p><b>Update v0.2b:</b> Added a new model trained on full names</p>
       <h5>Razin</h5>
     </div>
     <div class="container">
@@ -38,25 +37,35 @@
         <div class="col-md-6">
           <div class="mr-5 ml-5 mb-5">
             <h2>Enter Name</h2>
-            <h6 class="mb-3">Preferably Bengali & full name</h6>
             <form>
               <div>
                 <label class="sr-only" for="name_input">Name</label>
-                <input type="text" class="form-control mb-3" id="name_input" placeholder="Sokina, mokles etc">
+                <input type="text" class="form-control" id="name_input" placeholder="Sokina, mokles etc">
+                <small id="passwordHelpBlock" class="form-text text-muted mb-3">
+                  Preferably Bengali & full name
+                </small>
               </div>
-              <div>
-                <button type="submit" class="btn btn-primary mb-2" id="submit">genderize</button>
+              <div class="row">
+                <div class="col-4">
+                  <button type="submit" class="btn btn-primary" id="submit">genderize</button>
+                </div>
+                <div class="col-8">
+                  <select class="custom-select" id="model_selection">
+                    <option value="1">Model: Word wise</option>
+                    <option value="2">Model: Full name</option>
+                  </select>
+                </div>
               </div>
             </form>
           </div>
         </div>
         <div class="col-md-6">
           <table class="table text-center">
-            <thead id="header">
+            <thead class="thead-dark">
               <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Confidence</th>
+                <th scope="col" id="col1">Name</th>
+                <th scope="col" id="col2">Gender</th>
+                <th scope="col" id="col3">Confidence</th>
               </tr>
             </thead>
             <tbody id="rows">
@@ -66,7 +75,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 text-center">
-          <div class="alert alert-primary" role="alert">
+          <div class="alert alert-primary" role="alert" id="verdict_box">
             <h3 id="verdict">Enter full name for overall verdict</h3>
           </div>
         </div>
