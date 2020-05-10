@@ -16,13 +16,12 @@
 <body>
   <main role="main">
     <div class="jumbotron mb-5 text-center">
-      <h1 class="display-3 mb-3">Gender Guesser v0.2b</h1>
+      <h1 class="display-3 mb-3">Gender Guesser v0.1b</h1>
       <p>My first machine learning project: Gender guessing model trained on lots of
         bengali names. Billions and billions of names. Huge dataset. onek accurate, trust me. The name and gender
         dataset was scraped from <b>[censored for legal reasons]. </b> This assumed gender to be binary. Hope i don't
         offend anyone.
       </p>
-      <p><b>Update v0.2b:</b> Added a new model trained on full names</p>
       <h5>Razin</h5>
     </div>
     <div class="container">
@@ -41,7 +40,7 @@
               <div>
                 <label class="sr-only" for="name_input">Name</label>
                 <input type="text" class="form-control" id="name_input" placeholder="Sokina, mokles etc">
-                <small id="passwordHelpBlock" class="form-text text-muted mb-3">
+                <small id="nameHelp" class="form-text text-muted mb-3">
                   Preferably Bengali & full name
                 </small>
               </div>
@@ -73,11 +72,51 @@
           </table>
         </div>
       </div>
-      <div class="row">
+      <div class="row mb-5">
         <div class="col-md-12 text-center">
           <div class="alert alert-primary" role="alert" id="verdict_box">
             <h3 id="verdict">Enter full name for overall verdict</h3>
           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="mr-5 ml-5 mb-5">
+            <h3>Word-wise model</h3>
+            <p>This model is a machine learning classifer trained on 21,678 single word names which were extracted from
+              full names. Each name was assigned its gender based on the full name it comes from.</p>
+            <p>
+              First the input name is divided into words and passed into the model. The model outputs the
+              detected gender of the word and also how confident it is. The final verdict is calculated letting the
+              gender values and confidences cancel each other out. For example, a name with two words where one word is
+              low confidence male and the other is medium confidence female will be considered female.
+            </p>
+          </div>
+
+        </div>
+        <div class="col-md-6">
+          <div class="mr-5 ml-5 mb-5">
+            <h3>Full name model</h3>
+            <p>This model is a machine learning model trained on 5,44,838 bengali names. This model will work best with
+              full names but does also work with single words. Currently it removes all special characters like "." or
+              "-".</p>
+            <p>
+              The full name model is better at identifying the effect of words on entire name. For example, "rahman" is
+              evidently present in both female and male names. The word-wise model sets its gender as male or female
+              based on its frequency. So during calculation "rahman" affects the final outcome equally as other words in
+              the name. On the other hand this model will let the other words in the name affect the final verdict more
+              than this word since its not conclusive evidence.
+            </p>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Updates</h2>
+          <p><b>Update 0.1a (09/05/2020)</b> Initial model trained on single words. Made a python server and hosted
+            front-end using github pages</p>
+          <p><b>Update 0.1b (10/05/2020)</b> Added a new model trained on full names. Various updates to front-end</p>
         </div>
       </div>
     </div>
