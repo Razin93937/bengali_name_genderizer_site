@@ -2,7 +2,6 @@ var name_f;
 
 $(document).ready(function () {
     name_f = document.getElementById("name_input");
-    $("#alert").hide();
 })
 
 $(document).on('click', '#submit', function (evt) {
@@ -12,7 +11,7 @@ $(document).on('click', '#submit', function (evt) {
         $("#alert").show();
     }
     else {
-        var requestURL = "https://razin93937.pythonanywhere.com/guess/";
+        var requestURL = "https://razin93937.pythonanywhere.com/";
         $.post(requestURL, { 'f_name': name }, function (data) {
             $("#alert").hide();
             $("#rows").empty();
