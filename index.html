@@ -18,7 +18,7 @@
     <div class="jumbotron mb-4 text-center">
       <h1 class="display-3" style="display: inline;">Bengali Name Genderizer</h1>
       <h4 style="display: inline;">v0.2a</h4>
-      <p class="mt-3">My first machine learning project: gender guessing model trained on lots of
+      <p class="mt-3">My first machine learning project: a gender guesser trained on lots of
         bengali names. Billions and billions of names. Huge dataset. Onek accurate, trust me. The name and gender
         dataset was scraped from <b>[censored for legal reasons]. </b> This assumed gender to be binary. Hope i don't
         offend anyone.
@@ -84,10 +84,9 @@
         <div class="col-md-6">
           <div class="mr-5 ml-5 mb-5">
             <h3>Full name model</h3>
+            <h5>Accuracy: 98%</h5>
             <p>
-              This is my second machine learning model. It is trained
-              on 6,30,795 bengali names. This model will work best with full bengali names. This is way more accurate
-              than the word-wise model.
+              This model is trained on 6,30,795 bengali names. This model will work best with full bengali names.
             </p>
             <p>
               The full name model has higher accuracy because its better at identifying the effect of words on entire
@@ -99,15 +98,16 @@
         </div>
         <div class="col-md-6">
           <div class="mr-5 ml-5 mb-5">
-            <h3>Word-wise model (Less accurate)</h3>
+            <h3>Word-wise model</h3>
+            <h5>Accuracy: 80%</h5>
             <p>
-              This is my first machine learning model. It is trained on 21,678 single word names which were extracted
+              This modelis trained on 21,678 single word names which were extracted
               from full names and were assigned their gender based on the full name they were extracted from.</p>
             <p>
-              First the input name is divided into words and passed into the classifer. The classifer outputs the
-              detected gender of the word and also how confident it is. The final verdict is calculated letting the
-              gender values and confidences cancel each other out. For example, a name with two words where one word is
-              low confidence male and the other is medium confidence female will be considered female.
+              The name is divided into individual words and passed to the model which then outputs the
+              detected gender of the word and also how confident it is. The final verdict is calculated adding and
+              subtracting the gender and confidence values. For example, a name with two words where one word is
+              low confidence male and the other is medium confidence female, will be considered female.
             </p>
           </div>
         </div>
