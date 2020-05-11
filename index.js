@@ -40,7 +40,7 @@ function predict_full_name() {
         $("#rows").empty();
         $("#rows").append("<tr id='row1'></tr>");
         $("#row1").append("<td>" + data['verdict'] + "</td>");
-        $("#row1").append("<td>" + (data['confidence'] * 100 - 50) * 2 + "%</td>");
+        $("#row1").append("<td>" + (data['confidence'] - 0.5) * 2 + "</td>");
         $("#verdict").text("I am " + ((data['confidence'] * 100 - 50) * 2).toFixed(2) + "% sure \"" + name + "\" is a " + data['verdict'] + " name");
     }, "json");
 }
