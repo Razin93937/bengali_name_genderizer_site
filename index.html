@@ -36,13 +36,13 @@
       <div class="row">
         <div class="col-md-6">
           <div class="mb-5">
-            <h2>Enter Name</h2>
+            <h2>Enter Full Name</h2>
             <form>
               <div>
                 <label class="sr-only" for="name_input">Name</label>
-                <input type="text" class="form-control" id="name_input" placeholder="Sokina, Mokles etc">
+                <input type="text" class="form-control" id="name_input" placeholder="Sokina Ahmed, Mokles Uddin etc">
                 <small id="nameHelp" class="form-text text-muted mb-3">
-                  Preferably Bengali & full name
+                  Preferably Bengali
                 </small>
               </div>
               <div class="row">
@@ -77,22 +77,21 @@
         <div class="col-md-6">
           <div class="mr-2 ml-2 mb-5">
             <h3>Full name model</h3>
-            <h6><b>Accuracy:</b> 98% (Entire name)</h6>
+            <h6><b>Accuracy:</b> 98%</h6>
             <h6><b>Dataset:</b> 630,795 Bengali full names</h6>
             <p>
-              The full name is passed into the model after all special characters are removed. The model then outputs
-              the gender of the entire name and also its confidence.
+              The name is directly passed to the model which then detects the gender of the entire name.
             </p>
           </div>
         </div>
         <div class="col-md-6">
           <div class="mr-2 ml-2 mb-5">
             <h3>Word-wise model</h3>
-            <h6><b>Accuracy:</b> 86% (Individual words)</h6>
+            <h6><b>Accuracy:</b> 86%</h6>
             <h6><b>Dataset:</b> 61,664 Bengali single word names</h6>
             <p>
-              The name is divided into individual words and passed to the model which then outputs the
-              detected gender of each word and also how confident it is.
+              The name is divided into individual words and the model detects the gender of each word. The dataset for
+              this model was extracted from the dataset for full name model.
             </p>
           </div>
         </div>
@@ -110,7 +109,7 @@
           <p><b>Update 0.2a (11/05/2020)</b>
             Added about 88k names to the full name model training dataset.
           </p>
-          <p><b>Update 0.2r (11/05/2020)</b>
+          <p><b>Update 0.2r (12/05/2020)</b>
             word-wise model accuracy increased to 86% from 80%. Removed verdict box and updated text.
           </p>
         </div>
